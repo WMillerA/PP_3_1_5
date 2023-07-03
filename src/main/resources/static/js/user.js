@@ -33,6 +33,7 @@ async function fillHeaderText(authUser) {
     document.getElementById("header_text").innerText =
         `${authUser['username']} with roles: ${getUserRole(authUser['roles'])}`
 }
+
 function getUserRole(roles) {
     let result = "";
     for (const role of roles) {

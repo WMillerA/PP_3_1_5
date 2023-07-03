@@ -16,8 +16,10 @@ function getAllUsers() {
 }
 
 function getAdminPage() {
-    fetch(url).then(response => response.json()).then(user =>{
-        console.log(user); loadTable(user)})
+    fetch(url).then(response => response.json()).then(user => {
+        console.log(user);
+        loadTable(user)
+    })
 }
 
 function loadTable(listAllUsers) {
@@ -42,6 +44,7 @@ function loadTable(listAllUsers) {
     }
     document.getElementById('tableBodyAdmin').innerHTML = res;
 }
+
 function getInformationAboutUser(user) {
     console.log(user);
 
@@ -56,6 +59,7 @@ function getInformationAboutUser(user) {
 </tr>`
     document.getElementById('userTableBody').innerHTML = result;
 }
+
 function getUserPage() {
     fetch(userUrl).then(response => response.json()).then(user =>
         getInformationAboutUser(user))
@@ -140,7 +144,8 @@ async function editUser() {
         if (form_ed.roles.options[i].selected) {
             let tmp = {};
             tmp["id"] = form_ed.roles.options[i].value
-            listOfRole.push(tmp); console.log(listOfRole);
+            listOfRole.push(tmp);
+            console.log(listOfRole);
         }
     }
     let user = {
@@ -200,10 +205,12 @@ async function deleteUser() {
     })
 
 }
+
 async function fillHeaderText(authUser) {
     document.getElementById("header_text").innerText =
         `${authUser['username']} with roles: ${getUserRole(authUser['roles'])}`
 }
+
 function getUserRole(roles) {
     let result = "";
     for (const role of roles) {
