@@ -21,7 +21,7 @@ function getInformationAboutUser(user) {
     <td>${user.name}</td>
     <td>${user.lastName}</td>
     <td>${user.username}</td>
-    <td id=${'role' + user.id}>${user.roles.map(r => r.name).join(' ')}</td>
+    <td id=${'name' + user.id}>${user.roles.map(r => r.name).join(' ')}</td>
 </tr>`
     document.getElementById('userTableBody').innerHTML = result;
 }
